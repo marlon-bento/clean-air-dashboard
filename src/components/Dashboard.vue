@@ -283,7 +283,7 @@ function timeOutFunc() {
   }, 7000);
 }
 function coGauge(sensorValue) {
-  const maxSensorValue = 1000; // Valor máximo do sensor
+  const maxSensorValue = 600; // Valor máximo do sensor
   let percentage = (sensorValue / maxSensorValue) * 100;
   let aux = percentage;
 
