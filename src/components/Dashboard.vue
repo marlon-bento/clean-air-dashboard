@@ -200,7 +200,7 @@ async function fetchTemperatura() {
     const params = {
       sensor: "TEMPERATURA",
     };
-    const response = await axios.get(apis.baseApiPish + '/sensores/sensodata', {
+    const response = await axios.get('/api/sensores/sensodata', {
       params,
       headers: {
         Authorization: `Bearer ${login.token}`,
@@ -221,7 +221,7 @@ async function fetchDioxido() {
     const params = {
       sensor: "DIOXIDO",
     };
-    const response = await axios.get(apis.baseApiPish + '/sensores/sensodata', {
+    const response = await axios.get('/api/sensores/sensodata', {
       params,
       headers: {
         Authorization: `Bearer ${login.token}`,
@@ -239,7 +239,7 @@ async function fetchMonoxido() {
     const params = {
       sensor: "MONOXIDO",
     };
-    const response = await axios.get(apis.baseApiPish + '/sensores/sensodata', {
+    const response = await axios.get('/api/sensores/sensodata', {
       params,
       headers: {
         Authorization: `Bearer ${login.token}`,
@@ -259,7 +259,7 @@ async function fetchUmidade() {
     const params = {
       sensor: "UMIDADE",
     };
-    const response = await axios.get(apis.baseApiPish + '/sensores/sensodata', {
+    const response = await axios.get('/api/sensores/sensodata', {
       params,
       headers: {
         Authorization: `Bearer ${login.token}`,

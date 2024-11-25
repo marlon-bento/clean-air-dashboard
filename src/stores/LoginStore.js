@@ -28,7 +28,7 @@ export const useLoginStore = defineStore('login', {
         },
         async loginAction(usuario) {
             try {
-                const response = await axios.post(apis.baseApiPish+'/user/login', {
+                const response = await axios.post('/api/user/login', {
 
                     username: usuario.username,
                     password: usuario.password,
@@ -42,7 +42,7 @@ export const useLoginStore = defineStore('login', {
                 this.token = response.data.access_token
                 localStorage.setItem('token', this.token)
                 try {
-                    const responseUser = await axios.get(apis.baseApiPish+'/user/me',
+                    const responseUser = await axios.get('/api/user/me',
                         {
                             headers: {
                                 'Authorization': `Bearer ${response.data.access_token}`
@@ -77,7 +77,7 @@ export const useLoginStore = defineStore('login', {
         },
         async criarConta(usuario) {
             try {
-                const response = await axios.post(apis.baseApiPish+'/user/create', {
+                const response = await axios.post('/api/user/create', {
                     email: usuario.email,
                     username: usuario.username,
                     password: usuario.password,

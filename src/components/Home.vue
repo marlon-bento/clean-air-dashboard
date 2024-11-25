@@ -224,7 +224,7 @@ async function encerrarLaudo(laudoEvidado) {
       dadoAttStatus = {
         status: "Concluido"
       }
-      const response = await axios.patch(`${apis.baseLaudo}/api-laudo-manutencao/${laudoEvidado.id}/`, dadoAttStatus, {
+      const response = await axios.patch(`/api/api-laudo-manutencao/${laudoEvidado.id}/`, dadoAttStatus, {
         headers: { Authorization: `Bearer ${loginStore.token}` }
       })
       // atualiza as tabelas se der certo
@@ -235,7 +235,7 @@ async function encerrarLaudo(laudoEvidado) {
       dadoAttStatus = {
         status: "Devolvido-ao-patrimonio"
       }
-      const response = await axios.patch(`${apis.baseLaudo}/api-laudo-devolucao/${laudoEvidado.id}/`, dadoAttStatus, {
+      const response = await axios.patch(`/api/api-laudo-devolucao/${laudoEvidado.id}/`, dadoAttStatus, {
         headers: { Authorization: `Bearer ${loginStore.token}` }
       })
       // atualiza as tabelas se der certo
@@ -257,7 +257,7 @@ const fetchLaudos = async () => {
   };
 
   try {
-    const response = await axios.get(apis.baseApiPish + '/sensores/sensodata', {
+    const response = await axios.get('/api/sensores/sensodata', {
       params,
       headers: {
         Authorization: `Bearer ${loginStore.token}`,

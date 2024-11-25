@@ -62,7 +62,7 @@ const mensagemObservacoes = ref("")
 
 async function getInstitutos() {
     try {
-        const dados = await axios.get(apis.baseLaudo + '/api-institutos/',
+        const dados = await axios.get('/api/api-institutos/',
             {
                 headers: {
                     Authorization: `Bearer ${login.token}`
@@ -166,7 +166,7 @@ async function enviarDados() {
                 tipo_baixa: inputTipoDevolucao.value,
                 status: inputStatus.value
             }
-            const response =  await axios.post(apis.baseLaudo+"/api-laudo-devolucao/", dadosLaudo,            {
+            const response =  await axios.post("/api/api-laudo-devolucao/", dadosLaudo,            {
                 headers: {
                     Authorization: `Bearer ${login.token}`
                 }
