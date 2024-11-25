@@ -266,8 +266,12 @@ const fetchLaudos = async () => {
         Authorization: `Bearer ${loginStore.token}`,
       },
     });
-
-    laudos.value = removerNegativos(response.data);
+    if(searchTerm.value !== "TEMPERATURA"){
+      laudos.value = removerNegativos(response.data);
+    }else{
+      laudos.value = response.data;
+    }
+    
     totalLaudos.value = response.data.length;
 
 
