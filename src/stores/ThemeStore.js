@@ -26,13 +26,12 @@ export const useThemeStore = defineStore('theme', {
         },
         verify(){
             const tabler_theme = localStorage.getItem('tablerTheme')
-            if(!tabler_theme){
-                tabler_theme = 'dark';
+            if(tabler_theme){
                 document.body.setAttribute('data-bs-theme', tabler_theme);
             }else{
-                document.body.setAttribute('data-bs-theme', tabler_theme);
+                document.body.setAttribute('data-bs-theme', "dark");
+                localStorage.setItem('tablerTheme', "dark");
             }
-            
         }
     },
 
