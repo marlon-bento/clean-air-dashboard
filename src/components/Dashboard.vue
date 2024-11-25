@@ -47,7 +47,7 @@
 
 
     <div class="mt-5 row gx-3">
-      <div class="col  ">
+      <div class="col-3  ">
         <div class="card-usuario px-4 py-2 h-100 w-100">
           <h1 class="title-card-sensores mb-0">Bem vindo, novamente </h1>
           <span class="display-6" v-html="login.usuario"></span>
