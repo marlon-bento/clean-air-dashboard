@@ -194,7 +194,9 @@ const dadosSensorTemperatura = ref([{ value: "" }])
 const dadosSensorDioxido = ref([{ value: "" }])
 const dadosSensorMonoxido = ref([{ value: "" }])
 const dadosSensorUmidade = ref([{ value: "" }])
-
+const removerNegativos = (dados) => {
+    return dados.filter((item) => item.value >= 0);
+};
 async function fetchTemperatura() {
   try {
     const params = {
@@ -227,7 +229,7 @@ async function fetchDioxido() {
         Authorization: `Bearer ${login.token}`,
       },
     });
-    dadosSensorDioxido.value = response.data
+    dadosSensorDioxido.value = removerNegativos(response.data)
 
   } catch (error) {
 
@@ -246,7 +248,7 @@ async function fetchMonoxido() {
       },
     });
     dadosSensorMonoxido.value = response.data
-    const dados = dadosSensorMonoxido.value
+    const dados = removerNegativos(response.data)
     console.log(dados[0].value)
     coGauge(dados[0].value)
   } catch (error) {
@@ -265,7 +267,7 @@ async function fetchUmidade() {
         Authorization: `Bearer ${login.token}`,
       },
     });
-    dadosSensorUmidade.value = response.data
+    dadosSensorUmidade.value = removerNegativos(response.data)
 
   } catch (error) {
 

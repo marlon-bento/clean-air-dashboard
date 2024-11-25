@@ -112,7 +112,9 @@ const filtrarPorIntervalo = (dados, filtro) => {
             return dados;
     }
 };
-
+const removerNegativos = (dados) => {
+    return dados.filter((item) => item.value >= 0);
+};
 const limitarDados = (dados, quantidade) => {
     return dados.slice(0, quantidade);
 };
@@ -120,7 +122,7 @@ const limitarDados = (dados, quantidade) => {
 const atualizarGrafico = () => {
     let dadosFiltrados = filtrarPorIntervalo(props.dioxido, props.filtro);
     dadosFiltrados = limitarDados(dadosFiltrados, props.quantidade);
-
+    dadosFiltrados = removerNegativos(dadosFiltrados);
     const dadosFormatados = dadosFiltrados.map((item) => ({
         timestamp: moment(item.timestamp).format("DD/MM/YYYY HH:mm"),
         value: item.value,

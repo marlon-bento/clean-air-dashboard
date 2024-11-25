@@ -247,6 +247,9 @@ async function encerrarLaudo(laudoEvidado) {
   }
 
 }
+const removerNegativos = (dados) => {
+    return dados.filter((item) => item.value >= 0);
+};
 // Função para buscar laudos da API
 const fetchLaudos = async () => {
   const filtro = searchTerm.value && searchTerm.value.trim() !== ""
@@ -264,7 +267,7 @@ const fetchLaudos = async () => {
       },
     });
 
-    laudos.value = response.data;
+    laudos.value = removerNegativos(response.data);
     totalLaudos.value = response.data.length;
 
 

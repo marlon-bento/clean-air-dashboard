@@ -124,6 +124,9 @@ const filtrarPorIntervalo = (dados, filtro) => {
             return dados;
     }
 };
+const removerNegativos = (dados) => {
+    return dados.filter((item) => item.value >= 0);
+};
 
 const limitarDados = (dados, quantidade) => {
     return dados.slice(0, quantidade);
@@ -134,14 +137,14 @@ const atualizarGrafico = () => {
 
     let dadosFiltradosTemperatura = filtrarPorIntervalo(props.temperatura, props.filtro);
     dadosFiltradosTemperatura = limitarDados(dadosFiltradosTemperatura, props.quantidade);
-
+    dadosFiltradosTemperatura = removerNegativos(dadosFiltradosTemperatura);
     const dadosFormatadosTemperatura = dadosFiltradosTemperatura.map((item) => ({
         timestamp: moment(item.timestamp).format("DD/MM/YYYY HH:mm"),
         value: item.value,
     }));
     let dadosFiltradosUmidade = filtrarPorIntervalo(props.umidade, props.filtro);
     dadosFiltradosUmidade = limitarDados(dadosFiltradosUmidade, props.quantidade);
-
+    dadosFiltradosUmidade = removerNegativos(dadosFiltradosUmidade);
     const dadosFormatadosUmidade = dadosFiltradosUmidade.map((item) => ({
         timestamp: moment(item.timestamp).format("DD/MM/YYYY HH:mm"),
         value: item.value,
